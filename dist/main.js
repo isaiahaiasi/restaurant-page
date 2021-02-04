@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _vie
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Class\": () => (/* binding */ Class)\n/* harmony export */ });\nconst Class = (() => {\n  const colCenter = (() => 'col-center')();\n  const widthFill = (() => 'widthFill')();\n  const spaceV = (() => 'spaceV')();\n  const hidden = (() => 'hidden')();\n\n  const topContent = (() => 'top-content')();\n  const btnGroup = (() => 'btn-group')();\n  const btn = (() => 'btn')();\n  \n  return { colCenter, widthFill, spaceV, hidden, topContent, btnGroup, btn };\n})();\n\n\n\n//# sourceURL=webpack://restaurant/./src/tokens.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Class\": () => (/* binding */ Class)\n/* harmony export */ });\nconst Class = {\n  colCenter:  'col-center',\n  widthFill:  'widthFill',\n  spaceV:     'spaceV',\n  hidden:     'hidden',\n  topContent: 'top-content',\n  btnGroup:   'btn-group',\n  btn:        'btn',\n}\n\n\n\n//# sourceURL=webpack://restaurant/./src/tokens.js?");
 
 /***/ }),
 

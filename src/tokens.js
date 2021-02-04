@@ -1,14 +1,11 @@
-const Class = (() => {
-  const colCenter = (() => 'col-center')();
-  const widthFill = (() => 'widthFill')();
-  const spaceV = (() => 'spaceV')();
-  const hidden = (() => 'hidden')();
-
-  const topContent = (() => 'top-content')();
-  const btnGroup = (() => 'btn-group')();
-  const btn = (() => 'btn')();
-  
-  return { colCenter, widthFill, spaceV, hidden, topContent, btnGroup, btn };
-})();
+const Class = {
+  colCenter:  'col-center',
+  widthFill:  'widthFill',
+  spaceV:     'spaceV',
+  hidden:     'hidden',
+  topContent: 'top-content',
+  btnGroup:   'btn-group',
+  btn:        'btn',
+}
 
 export { Class };
