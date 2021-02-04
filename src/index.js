@@ -1,4 +1,4 @@
-const content = document.querySelector('#content');
-const myDiv = document.createElement('div');
-myDiv.textContent = "skeleton - JS";
-content.appendChild(myDiv);
+import * as viewMain from './view-main';
+
+const CONTENT = document.querySelector('#content');
+CONTENT.appendChild(viewMain.makeContent());
