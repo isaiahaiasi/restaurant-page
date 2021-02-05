@@ -1,5 +1,7 @@
-import * as vUtil from './view-util';
 import { Class } from './tokens';
+import * as vUtil from './view-util';
+import * as Nav from './view-nav';
+import * as Home from './view-home';
 
 // VIEW module for the shared elements (ie, the header, the nav, & the footer)
 // container for everything
@@ -7,18 +9,23 @@ const makeContent = () => {
   const container = vUtil.el('div', [Class.colCenter]);
   container.appendChild(makeHeaderContainer());
 
+  container.appendChild(Home.makePage().pageContent);
+
   return container;
 };
 
 const makeHeaderContainer = () => {
   const headerContainer = vUtil.el('div', [Class.topContent, Class.widthFill]);
 
+  // Header
   headerContainer.appendChild(makeHeader());
-  headerContainer.appendChild(makeNav([
-    'HOME', 
-    'SERVICES', 
-    'ABOUT US', 
-    'CONTACT'
+  
+  // Nav
+  headerContainer.appendChild(Nav.makeNav([
+    Home.makePage(),
+    { pageName: 'SERVICES' },
+    { pageName: 'ABOUT US' },
+    { pageName: 'CONTACT' },
   ]));
 
   return headerContainer;
@@ -37,26 +44,5 @@ const makeHeader = () => {
 
   return header;
 };
-
-//! A "page" is the object exported by each viewPage's factory
-//! It just needs an Element, and a name to set as the tab
-//! TEMP: just passing in an array of strings...
-const makeNav = (pages) => {
-  const nav = vUtil.el('nav', [Class.widthFill])
-  const navList = vUtil.el('ul', [Class.btnGroup]);
-
-  pages?.forEach((page) => {
-    navList.appendChild(addNavElement(page));
-  });
-
-  nav.appendChild(navList);
-  return nav;
-};
-
-const addNavElement = (page) => {
-  const tab = vUtil.el('li', [Class.btn]);
-  tab.textContent = page;
-  return tab;
-}
 
 export { makeContent };

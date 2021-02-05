@@ -1,11 +1,12 @@
 const Class = {
-  colCenter:  'col-center',
-  widthFill:  'widthFill',
-  spaceV:     'spaceV',
-  hidden:     'hidden',
-  topContent: 'top-content',
-  btnGroup:   'btn-group',
   btn:        'btn',
+  btnGroup:   'btn-group',
+  colCenter:  'col-center',
+  hidden:     'hidden',
+  navFixed:   'nav-fixed',
+  spaceV:     'space-v',
+  topContent: 'top-content',
+  widthFill:  'width-fill',
 }
 
 export { Class };
