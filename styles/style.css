@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
+
 root {
   /* colors */
   --col-bg: white;
   --col-text: black;
   --col-outline: black;
   --col-active:gold;
+}
+
+body {
+  font-family:'Alice', serif;
 }
 
 footer {
@@ -19,7 +25,7 @@ header {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  font-size:500%;
+  font-size:250%;
   z-index:10;
   background:white;
 }
@@ -88,7 +94,7 @@ h2 {
   display:none;
 }
 
-.btn:hover {
+.btn:hover, .btn.selected {
   background:white;
   color:black;
   transition:.2s;
