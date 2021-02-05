@@ -21,7 +21,7 @@ function lorem(length) {
     outLorem += splitLorem[i % splitLorem.length] + ' ';
   }
  
-  return lorem;
+  return outLorem;
 }
 
 export { el, lorem };

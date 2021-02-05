@@ -47,8 +47,10 @@ const changePage = (page) => {
 const fixedNav = (nav) => {
   if(window.scrollY >= navOffsetTop) {
     nav.classList.add(Class.navFixed);
+    nav.parentNode.style.paddingTop = nav.offsetHeight + 'px';
   } else {
     nav.classList.remove(Class.navFixed);
+    nav.parentNode.style.paddingTop = 0;
   }
 };
 
