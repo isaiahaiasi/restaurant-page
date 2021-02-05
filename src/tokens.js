@@ -1,12 +1,14 @@
-const Class = {
-  btn:        'btn',
-  btnGroup:   'btn-group',
-  colCenter:  'col-center',
-  hidden:     'hidden',
-  navFixed:   'nav-fixed',
-  spaceV:     'space-v',
+const cssClass = {
+  btn: 'btn',
+  btnGroup: 'btn-group',
+  btnSelected: 'btn-selected',
+  colCenter: 'col-center',
+  hidden: 'hidden',
+  mainTextContent: 'main-text-content',
+  navFixed: 'nav-fixed',
+  spaceV: 'space-v',
   topContent: 'top-content',
-  widthFill:  'width-fill',
+  widthFill: 'width-fill',
 }
 
-export { Class };
+export { cssClass };
