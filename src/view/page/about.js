@@ -2,7 +2,7 @@ import * as vUtil from '../util';
 import { cssClass } from '/src/tokens';
 
 const ID = 'view-about';
-const pageName = 'ABOUT US';
+const pageName = 'ABOUT';
 
 const makePage = () => {
   const pageContent = vUtil.el('main', [], ID);

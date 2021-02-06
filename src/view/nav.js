@@ -1,6 +1,7 @@
 import * as vUtil from './util';
 import { cssClass } from '../tokens';
 
+const NAV_ID_SUFFIX = '-nav';
 let _pages;
 let _activePage;
 let _navOffsetTop;
@@ -30,12 +31,12 @@ const setPages = (pages, navList) => {
   _pages = pages;
   
   pages?.forEach((page) => {
-    navList.appendChild(addNavElement(page));
+    navList.appendChild(makeNavElement(page));
   });
 };
 
-const addNavElement = (page) => {
-  const tab = vUtil.el('li', [cssClass.btn]);
+const makeNavElement = (page) => {
+  const tab = vUtil.el('li', [cssClass.btn], page.pageName + NAV_ID_SUFFIX);
   tab.textContent = page.pageName;
   page.tab = tab;
   //TODO: tab icon
@@ -52,10 +53,12 @@ const changePage = (page) => {
   const parent = oldContent.parentElement;
 
   oldContent.remove();
-  _activePage.tab.classList.remove(cssClass.btnSelected);
+  document.querySelector(`#${_activePage.pageName}${NAV_ID_SUFFIX}`)
+    .classList.remove(cssClass.btnSelected);
 
-  parent.appendChild(page.pageContent)
-  page.tab.classList.add(cssClass.btnSelected);
+  parent.appendChild(page.pageContent);
+  document.querySelector(`#${page.pageName}${NAV_ID_SUFFIX}`)
+    .classList.add(cssClass.btnSelected);
 
   _activePage = page;
 };

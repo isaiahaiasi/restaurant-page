@@ -94,7 +94,7 @@ h2 {
   display:none;
 }
 
-.btn:hover, .btn.selected {
+.btn:hover, .btn-selected {
   background:white;
   color:black;
   transition:.2s;
