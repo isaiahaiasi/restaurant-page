@@ -8,13 +8,7 @@ const makePage = () => {
   const pageContent = vUtil.el('main', [], ID);
   const pageTextContainer = vUtil.el('div', [cssClass.mainTextContent]);
   
-  //! Placeholder
-  for (let i = 0; i < 3; i++) {
-    const p = vUtil.el('p');
-    const lorem = vUtil.lorem( i % 2 === 0 ? 100: 200 );
-    p.textContent = lorem;
-    pageTextContainer.appendChild(p);
-  }
+  vUtil.loremPara(4, pageTextContainer);
 
   pageContent.appendChild(pageTextContainer);
 

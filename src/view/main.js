@@ -8,6 +8,14 @@ import * as Contact from './page/contact';
 
 // VIEW module for the shared elements (ie, the header, the nav, & the footer)
 // container for everything
+
+const PAGES = [
+  Home.makePage(),
+  Services.makePage(),
+  About.makePage(),
+  Contact.makePage(),
+];
+
 const makeContent = () => {
   const container = vUtil.el('div', [cssClass.colCenter]);
   container.appendChild(makeHeaderContainer());
@@ -24,12 +32,7 @@ const makeHeaderContainer = () => {
   headerContainer.appendChild(makeHeader());
   
   // Nav
-  headerContainer.appendChild(Nav.makeNav([
-    Home.makePage(),
-    Services.makePage(),
-    About.makePage(),
-    Contact.makePage(),
-  ]));
+  headerContainer.appendChild(Nav.makeNav(PAGES));
 
   return headerContainer;
 };

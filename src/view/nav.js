@@ -19,12 +19,13 @@ const makeNav = (pages) => {
   window.addEventListener('load', () => onPageLoad(nav));
 
   _activePage = pages[0];
+  nav.querySelector(`#${_activePage.pageName}${NAV_ID_SUFFIX}`)
+    .classList.add(cssClass.btnSelected);
   return nav;
 };
 
 const onPageLoad = (nav) => {
   _navOffsetTop = nav.offsetTop;
-  console.log(nav.offsetTop);
 };
 
 const setPages = (pages, navList) => {
@@ -44,17 +45,26 @@ const makeNavElement = (page) => {
   return tab;
 };
 
-const changePage = (page) => {
+const changePage = (page, parent) => {
   if (page === _activePage) {
-    return;
+    //return;
   }
 
   const oldContent = document.querySelector(`#${_activePage.id}`);
-  const parent = oldContent.parentElement;
 
-  oldContent.remove();
-  document.querySelector(`#${_activePage.pageName}${NAV_ID_SUFFIX}`)
-    .classList.remove(cssClass.btnSelected);
+  if (!parent) {
+    if (oldContent) {
+      parent = oldContent.parentElement;
+    } else {
+      console.error('No valid parent container found for page!');
+    }
+  }
+
+  if (oldContent) {
+    oldContent.remove();
+    document.querySelector(`#${_activePage.pageName}${NAV_ID_SUFFIX}`)
+      .classList.remove(cssClass.btnSelected);
+  }
 
   parent.appendChild(page.pageContent);
   document.querySelector(`#${page.pageName}${NAV_ID_SUFFIX}`)
@@ -74,4 +84,4 @@ const fixedNav = (nav) => {
   }
 };
 
-export { makeNav };
+export { makeNav, changePage };
