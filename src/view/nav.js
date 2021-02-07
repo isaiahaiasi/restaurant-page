@@ -1,36 +1,30 @@
 import * as vUtil from './util';
 import { cssClass } from '../tokens';
+import { addDynamicFixedPos } from './fixedElement';
 
 const NAV_ID_SUFFIX = '-nav';
-let _pages;
 let _activePage;
 let _navOffsetTop;
 
 //TODO: decouple logic from implementation (DOM generation)
+//TODO: allow "fixed" and "non-fixed" modes (and/or, have "fixed' fall under other fixed nav?...)
 const makeNav = (pages) => {
   const nav = vUtil.el('nav', [cssClass.widthFill])
   const navList = vUtil.el('ul', [cssClass.btnGroup]);
 
   setPages(pages, navList);
-
-  window.addEventListener('scroll', () => fixedNav(nav));
-
   nav.appendChild(navList);
-  window.addEventListener('load', () => onPageLoad(nav));
 
   _activePage = pages[0];
   nav.querySelector(`#${_activePage.pageName}${NAV_ID_SUFFIX}`)
     .classList.add(cssClass.btnSelected);
+
+  addDynamicFixedPos(nav);
+  
   return nav;
 };
 
-const onPageLoad = (nav) => {
-  _navOffsetTop = nav.offsetTop;
-};
-
 const setPages = (pages, navList) => {
-  _pages = pages;
-  
   pages?.forEach((page) => {
     navList.appendChild(makeNavElement(page));
   });
@@ -71,17 +65,6 @@ const changePage = (page, parent) => {
     .classList.add(cssClass.btnSelected);
 
   _activePage = page;
-};
-
-// change styles based on scroll (to stick to top when scrolling past)
-const fixedNav = (nav) => {
-  if(window.scrollY >= _navOffsetTop) {
-    nav.classList.add(cssClass.navFixed);
-    nav.parentNode.style.paddingTop = nav.offsetHeight + 'px';
-  } else {
-    nav.classList.remove(cssClass.navFixed);
-    nav.parentNode.style.paddingTop = 0;
-  }
 };
 
 export { makeNav, changePage };

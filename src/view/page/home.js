@@ -25,7 +25,7 @@ const makePage = () => {
     vUtil.elWithContent('h2', CONTENT.subHeader)
   );
   
-  vUtil.loremPara(2, pageTextContainer);
+  vUtil.loremPara(8, pageTextContainer);
 
   pageContent.appendChild(pageTextContainer);
 

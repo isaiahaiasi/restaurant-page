@@ -6,7 +6,7 @@ const cssClass = {
   hero: 'hero',
   hidden: 'hidden',
   mainTextContent: 'main-text-content',
-  navFixed: 'nav-fixed',
+  fixedDynamic: 'fixed-dynamic',
   spaceV: 'space-v',
   topContent: 'top-content',
   widthFill: 'width-fill',

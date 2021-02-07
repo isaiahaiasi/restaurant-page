@@ -1,5 +1,8 @@
 import * as vUtil from '../util';
 import { cssClass } from '/src/tokens';
+import * as Nav from '../nav';
+
+//! ADD MULTIPLE TABS
 
 const ID = 'view-services';
 const pageName = 'SERVICES';
@@ -24,7 +27,7 @@ const SERVICES = {
     {
       title: 'Basilisk Beheading',
       cost: '100gp',
-      description: 'When it comes to dangerous creatures like this, do NOT attempt your own extermination! Remember--"More than 6 legs? Call a professional!" Our Grandpappy taught us those words, and they\'re as true today as they were then. Don\'t think you have to live with all those poor petrified souls cluttering your front yard, either—we\'ll find a nice statue garden for the victims as no extra charge!',
+      description: 'When it comes to dangerous creatures like this, do NOT attempt your own extermination! Remember--"More than 6 legs? Call a professional!" Our Grandpappy taught us those words, and they\'re as true today as they were then. Don\'t think you have to live with all those poor petrified souls cluttering your front yard, either—we\'ll find a nice statue garden for the victims at no extra charge!',
     },
     {
       title: 'Skeleton Burial',
