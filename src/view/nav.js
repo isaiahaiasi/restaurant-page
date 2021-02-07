@@ -3,68 +3,65 @@ import { cssClass } from '../tokens';
 import { addDynamicFixedPos } from './fixedElement';
 
 const NAV_ID_SUFFIX = '-nav';
-let _activePage;
-let _navOffsetTop;
 
-//TODO: decouple logic from implementation (DOM generation)
-//TODO: allow "fixed" and "non-fixed" modes (and/or, have "fixed' fall under other fixed nav?...)
-const makeNav = (pages) => {
-  const nav = vUtil.el('nav', [cssClass.widthFill])
-  const navList = vUtil.el('ul', [cssClass.btnGroup]);
+// NAV factory
+const getNewNav = (pages, contentParent, fixed) => {
+  let _activePage;
+  const tabs = new Map();
 
-  setPages(pages, navList);
-  nav.appendChild(navList);
+  //TODO: allow "fixed" and "non-fixed" modes 
+  // (and/or, have "fixed' fall under other fixed nav?...)
+  const makeNav = () => {
+    const nav = vUtil.el('nav', [cssClass.widthFill])
+    const navList = vUtil.el('ul', [cssClass.btnGroup]);
 
-  _activePage = pages[0];
-  nav.querySelector(`#${_activePage.pageName}${NAV_ID_SUFFIX}`)
-    .classList.add(cssClass.btnSelected);
+    setPages(pages, navList);
+    tabs.get(pages[0]).classList.add(cssClass.btnSelected);
 
-  addDynamicFixedPos(nav);
-  
-  return nav;
-};
+    nav.appendChild(navList);
 
-const setPages = (pages, navList) => {
-  pages?.forEach((page) => {
-    navList.appendChild(makeNavElement(page));
-  });
-};
-
-const makeNavElement = (page) => {
-  const tab = vUtil.el('li', [cssClass.btn], page.pageName + NAV_ID_SUFFIX);
-  tab.textContent = page.pageName;
-  page.tab = tab;
-  //TODO: tab icon
-  tab.addEventListener('click', () => changePage(page));
-  return tab;
-};
-
-const changePage = (page, parent) => {
-  if (page === _activePage) {
-    return;
-  }
-
-  const oldContent = document.querySelector(`#${_activePage.id}`);
-
-  if (!parent) {
-    if (oldContent) {
-      parent = oldContent.parentElement;
-    } else {
-      console.error('No valid parent container found for page!');
+    if (fixed === true) {
+      addDynamicFixedPos(nav);
     }
-  }
 
-  if (oldContent) {
-    oldContent.remove();
-    document.querySelector(`#${_activePage.pageName}${NAV_ID_SUFFIX}`)
-      .classList.remove(cssClass.btnSelected);
-  }
+    changePage(pages[0]);
+    _activePage = pages[0];
 
-  parent.appendChild(page.pageContent);
-  document.querySelector(`#${page.pageName}${NAV_ID_SUFFIX}`)
-    .classList.add(cssClass.btnSelected);
+    return nav;
+  };
 
-  _activePage = page;
+  // Returns an array of the nav page *elements*
+  const setPages = (pages, navList) => {
+    pages?.forEach((page) => {
+      const tab = makeNavElement(page);
+      tabs.set(page, tab);
+      navList.appendChild(tab);
+    });
+  };
+
+  const makeNavElement = (page) => {
+    const tab = vUtil.el('li', [cssClass.btn], page.pageName + NAV_ID_SUFFIX);
+    tab.textContent = page.pageName;
+    page.tab = tab;
+    tab.addEventListener('click', () => changePage(page));
+    return tab;
+  };
+
+  const changePage = (page) => {
+    if (page === _activePage) {
+      return;
+    }
+
+    vUtil.removeAllChildren(contentParent);
+    contentParent.appendChild(page.pageContent);
+
+    tabs.get(_activePage)?.classList.remove(cssClass.btnSelected);
+    tabs.get(page).classList.add(cssClass.btnSelected);
+
+    _activePage = page;
+  };
+
+  return makeNav();
 };
 
-export { makeNav, changePage };
+export { getNewNav };

@@ -10,7 +10,7 @@ const CONTENT = {
 
 const makePage = () => {
   const pageName = 'HOME';
-  const pageContent = vUtil.el('main', [], ID);
+  const pageContent = vUtil.el('div', [cssClass.pageContent], ID);
   const pageTextContainer = vUtil.el('div', [cssClass.mainTextContent]);
 
   pageTextContainer.appendChild(getHero());

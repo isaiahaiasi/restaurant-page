@@ -7,16 +7,6 @@ import * as Nav from '../nav';
 const ID = 'view-services';
 const pageName = 'SERVICES';
 
-// NEEDS: 
-// Sub-nav for different service categories 
-//   ('monster killing' 'assassination' 'reclamation')
-// A "service item" element generator, with title/cost/description
-// A "service item container" that is switched out for the different cat tabs
-
-const CONTENT = {
-  header: 'Who Do You Need Us To Kill?',
-};
-
 const SERVICES = {
   monsters: [
     {
@@ -35,12 +25,39 @@ const SERVICES = {
       description: 'Look, you don\'t need to tell us WHY you were down in that ancient tomb, or WHY you "borrowed" that precious skull-shaped ruby from the pedestal in front of the sarcophogus. That\'s not important now. What\'s important is dealing with the dozens of skeletons currently tearing your town apart trying to reclaim what\'s rightfully theirs! With our help, you can keep your ill-gotten riches, and sleep easy!',
     },
   ],
-  reclamation: {
+  reclamation: [
+    {
+      title: 'blah',
+      cost: '5gp',
+      description: 'test test test testeaojfoeiaj foieja foijae fojae fojfaeo jfa eojf aoejf aejf aoej faeoj foaje foaejfojaefoaejf oejfo eajof jaof jaejf eafj aeofj aeojf oea',
+    },
+    {
+      title: 'blah',
+      cost: '125gp',
+      description: 'test test test testeaojfoeiaj foieja foijae fojae fojfaeo jfa eojf aoejf aejf aoej faeoj foaje foaejfojaefoaejf oejfo eajof jaof jaejf eafj aeofj aeojf oea',
+    },
+  ],
+  murder: [
+    {
+      title: 'eajoifjae',
+      cost: '300gp',
+      description: 'Look, you don\'t need to tell us WHY you were down in that ancient tomb, or WHY you "borrowed" that precious skull-shaped ruby from the pedestal in front of the sarcophogus. That\'s not important now. What',
+    },
+    {
+      title: 'blah',
+      cost: '5gp',
+      description: 'test test test testeaojfoeiaj foieja foijae fojae fojfaeo jfa eojf aoejf aejf aoej faeoj foaje foaejfojaefoaejf oejfo eajof jaof jaejf eafj aeofj aeojf oea',
+    },
+    {
+      title: 'blah',
+      cost: '125gp',
+      description: 'test test test testeaojfoeiaj foieja foijae fojae fojfaeo jfa eojf aoejf aejf aoej faeoj foaje foaejfojaefoaejf oejfo eajof jaof jaejf eafj aeofj aeojf oea',
+    },
+  ],
+};
 
-  },
-  murder: {
-
-  },
+const CONTENT = {
+  header: 'Who Do You Need Us To Kill?',
 };
 
 const makePage = () => {

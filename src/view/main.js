@@ -18,21 +18,25 @@ const PAGES = [
 
 const makeContent = () => {
   const container = vUtil.el('div', [cssClass.colCenter]);
-  container.appendChild(makeHeaderContainer());
+  
+  // The Nav needs to know the element that each page's content will be put in
+  // So that element needs to exist first, then be passed to the function that creates the nav
+  const mainContent = vUtil.el('main');
+  container.appendChild(makeHeaderContainer(mainContent));
 
-  container.appendChild(Home.makePage().pageContent);
+  container.appendChild(mainContent);
 
   return container;
 };
 
-const makeHeaderContainer = () => {
+const makeHeaderContainer = (mainContent) => {
   const headerContainer = vUtil.el('div', [cssClass.topContent, cssClass.widthFill]);
 
   // Header
   headerContainer.appendChild(makeHeader());
   
   // Nav
-  headerContainer.appendChild(Nav.makeNav(PAGES));
+  headerContainer.appendChild(Nav.getNewNav(PAGES, mainContent, true));
 
   return headerContainer;
 };

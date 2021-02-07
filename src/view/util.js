@@ -39,6 +39,12 @@ const loremPara = (length, container) => {
   }
 };
 
+const removeAllChildren = (parentNode) => {
+  while (parentNode.firstChild) {
+    parentNode.removeChild(parentNode.firstChild);
+  }
+};
 
 
-export { el, elWithContent, getLorem, loremPara };
+
+export { el, elWithContent, getLorem, loremPara, removeAllChildren };
