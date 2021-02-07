@@ -3,16 +3,39 @@ import { cssClass } from '/src/tokens';
 
 const ID = 'view-home';
 
+const CONTENT = {
+  header: 'All your slaying needs—for a song!',
+  subHeader: 'Quick. Professional. Entertaining!',
+}
+
 const makePage = () => {
   const pageName = 'HOME';
   const pageContent = vUtil.el('main', [], ID);
   const pageTextContainer = vUtil.el('div', [cssClass.mainTextContent]);
 
-  vUtil.loremPara(10, pageTextContainer);
+  pageTextContainer.appendChild(getHero());
+  
+  pageTextContainer.appendChild(
+    vUtil.elWithContent('h1', CONTENT.header)
+  );
+
+  vUtil.loremPara(1, pageTextContainer);
+  
+  pageTextContainer.appendChild(
+    vUtil.elWithContent('h2', CONTENT.subHeader)
+  );
+  
+  vUtil.loremPara(2, pageTextContainer);
 
   pageContent.appendChild(pageTextContainer);
 
-  return { pageName, pageContent, id: ID }
-}
+  return { pageName, pageContent, id: ID };
+};
+
+const getHero = () => {
+  const hero =  vUtil.el('div', [cssClass.hero]);
+  hero.textContent = '(some cool dragon ink, kinda in the style of the typeface)';
+  return hero;
+};
 
 export { makePage };

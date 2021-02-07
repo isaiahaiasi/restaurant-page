@@ -6,6 +6,7 @@ root {
   --col-text: black;
   --col-outline: black;
   --col-active:gold;
+  font-size:10px;
 }
 
 body {
@@ -25,7 +26,7 @@ header {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  font-size:250%;
+  font-size:3.5rem;
   z-index:10;
   background:white;
 }
@@ -37,16 +38,17 @@ main {
 }
 
 h1 {
-  font-size:400%;
+  font-size:300%;
   border-bottom: 1px solid black;
-  padding: .1em 0;
-  margin:.2em 0;
-  margin-top:.5em;
+  padding: .1rem 0;
+  margin:.2rem 0;
+  margin-top:.5rem;
 }
 
 h2 {
-  font-size:150%;
+  font-size:1.5rem;
   margin-top:.4em;
+  text-align:center;
 }
 
 /* General Utilty Classes*/
@@ -87,7 +89,7 @@ h2 {
   padding: .4em 1em;
   font-size:150%;
   text-align:right;
-  border-top: 3px solid black;
+  border-top: 5px solid black;
 }
 
 .btn-icon {
@@ -111,7 +113,7 @@ h2 {
 
 .hero {
   height:120px;
-  background:red;
+  background:rgb(137, 196, 122);
 }
 
 .main-text-content {

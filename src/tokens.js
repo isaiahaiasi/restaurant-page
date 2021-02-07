@@ -3,6 +3,7 @@ const cssClass = {
   btnGroup: 'btn-group',
   btnSelected: 'btn-selected',
   colCenter: 'col-center',
+  hero: 'hero',
   hidden: 'hidden',
   mainTextContent: 'main-text-content',
   navFixed: 'nav-fixed',
