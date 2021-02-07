@@ -8,7 +8,7 @@ const ID = 'view-services';
 const pageName = 'SERVICES';
 
 const SERVICES = {
-  monsters: [
+  Monsters: [
     {
       title: 'Kentucky Fried Gryphon',
       cost: '35gp',
@@ -25,7 +25,7 @@ const SERVICES = {
       description: 'Look, you don\'t need to tell us WHY you were down in that ancient tomb, or WHY you "borrowed" that precious skull-shaped ruby from the pedestal in front of the sarcophogus. That\'s not important now. What\'s important is dealing with the dozens of skeletons currently tearing your town apart trying to reclaim what\'s rightfully theirs! With our help, you can keep your ill-gotten riches, and sleep easy!',
     },
   ],
-  reclamation: [
+  Reclamation: [
     {
       title: 'blah',
       cost: '5gp',
@@ -37,7 +37,7 @@ const SERVICES = {
       description: 'test test test testeaojfoeiaj foieja foijae fojae fojfaeo jfa eojf aoejf aejf aoej faeoj foaje foaejfojaefoaejf oejfo eajof jaof jaejf eafj aeofj aeojf oea',
     },
   ],
-  murder: [
+  Murder: [
     {
       title: 'eajoifjae',
       cost: '300gp',
@@ -60,22 +60,40 @@ const CONTENT = {
   header: 'Who Do You Need Us To Kill?',
 };
 
+const PAGES = [
+  {
+    pageName: 'Monsters',
+    pageContent: makeServicePage(SERVICES.Monsters),
+  },
+  {
+    pageName: 'Reclamation',
+    pageContent: makeServicePage(SERVICES.Reclamation),
+  },
+  {
+    pageName: 'Murder',
+    pageContent: makeServicePage(SERVICES.Murder),
+  },
+];
+
 const makePage = () => {
-  const pageContent = vUtil.el('main', [], ID);
-  const pageTextContainer = vUtil.el('div', [cssClass.mainTextContent]);
+  const pageContent = vUtil.el(
+    'div', 
+    [cssClass.pageContent, cssClass.mainTextContent], 
+    ID,
+  );
 
-  pageTextContainer.appendChild(vUtil.elWithContent('h1', CONTENT.header));
+  pageContent.appendChild(vUtil.elWithContent('h1', CONTENT.header));
+  vUtil.loremPara(1, pageContent);
   
-  vUtil.loremPara(1, pageTextContainer);
+  const servicePageContainer = vUtil.el('div', [cssClass.mainTextContent]);
+  pageContent.appendChild(Nav.getNewNav(PAGES, servicePageContainer, false));
 
-  pageTextContainer.appendChild(makeServiceTab(SERVICES.monsters));
-
-  pageContent.appendChild(pageTextContainer);
+  pageContent.appendChild(servicePageContainer);
 
   return { pageName, pageContent, id: ID };
 };
 
-const makeServiceTab = (svcCategory) => {
+function makeServicePage(svcCategory) {
   const svcContainer = vUtil.el('div');
   svcCategory.forEach((item) => {
     svcContainer.appendChild(
@@ -85,7 +103,7 @@ const makeServiceTab = (svcCategory) => {
   return svcContainer;
 };
 
-const makeServiceItem = (title, cost, description) => {
+function makeServiceItem(title, cost, description) {
   // main containers (for interior vertical line style)
   const item = vUtil.el('div', ['svc-item']);
   const itemContainer = vUtil.el('div', ['svc-item-container']);

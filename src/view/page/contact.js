@@ -5,7 +5,7 @@ const ID = 'view-contact';
 const pageName = 'CONTACT';
 
 const makePage = () => {
-  const pageContent = vUtil.el('main', [], ID);
+  const pageContent = vUtil.el('div', [cssClass.pageContent], ID);
   const pageTextContainer = vUtil.el('div', [cssClass.mainTextContent]);
   
   //! Placeholder
