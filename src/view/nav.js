@@ -47,7 +47,7 @@ const makeNavElement = (page) => {
 
 const changePage = (page, parent) => {
   if (page === _activePage) {
-    //return;
+    return;
   }
 
   const oldContent = document.querySelector(`#${_activePage.id}`);
