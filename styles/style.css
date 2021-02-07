@@ -38,15 +38,15 @@ main {
 }
 
 h1 {
-  font-size:300%;
+  font-size:3rem;
   border-bottom: 1px solid black;
-  padding: .1rem 0;
-  margin:.2rem 0;
-  margin-top:.5rem;
+  padding: .1em 0;
+  margin:.1em 0;
+  margin-top:.2em;
 }
 
 h2 {
-  font-size:1.5rem;
+  font-size:2rem;
   margin-top:.4em;
   text-align:center;
 }
@@ -127,6 +127,29 @@ h2 {
 .foot {
   position:absolute;
   bottom:20px;
+}
+
+/* SERVICE ITEM */
+
+.svc-item {
+  padding:1.5rem 1rem 0 .5rem;
+  padding-bottom:0;
+}
+
+.svc-item-container {
+  border-left: 1px solid black;
+  padding-left: .5rem;
+}
+
+.svc-item-top {
+  display:flex;
+  justify-content: space-between;
+  /* font-weight:bold; */
+  font-size: 1.6rem;
+}
+
+.svc-item-description {
+  padding-top: .5rem;
 }
 
 /* IDs */
