@@ -12,7 +12,6 @@ import * as Contact from './page/contact';
 const PAGES = [
   Home.makePage(),
   Services.makePage(),
-  About.makePage(),
   Contact.makePage(),
 ];
 

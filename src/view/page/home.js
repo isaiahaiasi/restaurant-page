@@ -34,7 +34,9 @@ const makePage = () => {
 
 const getHero = () => {
   const hero =  vUtil.el('div', [cssClass.hero]);
-  hero.textContent = '(some cool dragon ink, kinda in the style of the typeface)';
+  const img = vUtil.el('img');
+  img.setAttribute('src','/imgs/Dragon.svg');
+  hero.appendChild(img);
   return hero;
 };
 
