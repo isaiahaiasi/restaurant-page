@@ -1,4 +1,4 @@
-import { cssClass } from '../tokens';
+import { cssClass, imgLinks } from '../tokens';
 import * as vUtil from './util';
 import * as Nav from './nav';
 import * as Home from './page/home';
@@ -49,7 +49,7 @@ const makeHeader = () => {
   gitIconContainer.style = 'padding: .5rem; padding-bottom: 0;';
   gitIconContainer.setAttribute('href', 'https://github.com/isaiahaiasi/restaurant-page');
   const gitIcon = vUtil.el('img');
-  gitIcon.setAttribute('src','/imgs/GitHub-Mark-64px.png');
+  gitIcon.setAttribute('src',imgLinks.gh);
   gitIconContainer.appendChild(gitIcon);
   header.appendChild(gitIconContainer);
 

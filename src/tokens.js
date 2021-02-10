@@ -14,4 +14,9 @@ const cssClass = {
   widthFill: 'width-fill',
 }
 
-export { cssClass };
+const imgLinks = {
+  gh: '/dist/imgs/GitHub-Mark-64px.png',
+  dragon: '/dist/imgs/Dragon.svg',
+}
+
+export { cssClass, imgLinks };
