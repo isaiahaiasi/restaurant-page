@@ -42,13 +42,16 @@ const makeHeaderContainer = (mainContent) => {
 const makeHeader = () => {
   const header = vUtil.el('header', [cssClass.widthFill]);
 
-  const headerText = vUtil.el('p');
-  headerText.textContent = 'Bard & Scabbard';
+  const headerText = vUtil.elWithContent('p', 'Bard & Scabbard');
   header.appendChild(headerText);
 
-  const navButton = vUtil.el('div');
-  navButton.textContent = 'NAV';
-  header.appendChild(navButton);
+  const gitIconContainer = vUtil.el('a');
+  gitIconContainer.style = 'padding: .5rem; padding-bottom: 0;';
+  gitIconContainer.setAttribute('href', 'https://github.com/isaiahaiasi/restaurant-page');
+  const gitIcon = vUtil.el('img');
+  gitIcon.setAttribute('src','/imgs/GitHub-Mark-64px.png');
+  gitIconContainer.appendChild(gitIcon);
+  header.appendChild(gitIconContainer);
 
   return header;
 };
