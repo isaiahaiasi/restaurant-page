@@ -1,5 +1,6 @@
 import * as vUtil from '../util';
-import { cssClass, imgLinks } from '/src/tokens';
+import { cssClass } from '/src/tokens';
+import src from '/src/imgs/Dragon.svg';
 
 const ID = 'view-home';
 
@@ -35,7 +36,7 @@ const makePage = () => {
 const getHero = () => {
   const hero =  vUtil.el('div', [cssClass.hero]);
   const img = vUtil.el('img');
-  img.setAttribute('src', imgLinks.dragon);
+  img.setAttribute('src', src);
   hero.appendChild(img);
   return hero;
 };
