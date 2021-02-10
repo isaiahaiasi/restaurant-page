@@ -84,6 +84,7 @@ const makePage = () => {
 
   pageContent.appendChild(vUtil.elWithContent('h1', CONTENT.header));
   vUtil.loremPara(1, pageContent);
+  pageContent.appendChild(vUtil.el('br'));
   
   const servicePageContainer = vUtil.el('div', [cssClass.mainTextContent]);
   pageContent.appendChild(Nav.getNewNav(PAGES, servicePageContainer, false));

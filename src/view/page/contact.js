@@ -8,12 +8,11 @@ const makePage = () => {
   const pageContent = vUtil.el('div', [cssClass.pageContent], ID);
   const pageTextContainer = vUtil.el('div', [cssClass.mainTextContent]);
   
-  //! Placeholder
-  for (let i = 0; i < 10; i++) {
-    const p = vUtil.el('p');
-    p.textContent = 'lorem';
-    pageTextContainer.appendChild(p);
-  }
+  const header = vUtil.elWithContent('h1', 'Contact us!');
+  pageTextContainer.appendChild(header);
+
+  const p1 = vUtil.elWithContent('p', 'Find us at 02496 Waterdeep Dr, or reach out to us via mail, scrying, or messenger owlbear!');
+  pageTextContainer.appendChild(p1);
 
   pageContent.appendChild(pageTextContainer);
 

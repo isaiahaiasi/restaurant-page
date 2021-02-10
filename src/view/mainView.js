@@ -3,7 +3,6 @@ import * as vUtil from './util';
 import * as Nav from './nav';
 import * as Home from './page/home';
 import * as Services from './page/services';
-import * as About from './page/about';
 import * as Contact from './page/contact';
 
 // VIEW module for the shared elements (ie, the header, the nav, & the footer)
