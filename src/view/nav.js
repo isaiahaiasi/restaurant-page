@@ -5,7 +5,7 @@ import { addDynamicFixedPos } from './fixedElement';
 const NAV_ID_SUFFIX = '-nav';
 
 // NAV factory
-const getNewNav = (pages, contentParent, fixed) => {
+const getNewNav = (pages, contentParent, isFixed) => {
   let _activePage;
   const tabs = new Map();
 
@@ -20,8 +20,9 @@ const getNewNav = (pages, contentParent, fixed) => {
 
     nav.appendChild(navList);
 
-    if (fixed === true) {
+    if (isFixed === true) {
       addDynamicFixedPos(nav);
+      nav.classList.add(cssClass.top);
     }
 
     changePage(pages[0]);

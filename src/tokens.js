@@ -9,6 +9,7 @@ const cssClass = {
   mainTextContent: 'main-text-content',
   pageContent: 'page-content',
   spaceV: 'space-v',
+  top: 'top',
   topContent: 'top-content',
   widthFill: 'width-fill',
 }
